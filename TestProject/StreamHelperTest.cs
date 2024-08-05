@@ -12,18 +12,20 @@ namespace Teste_Software_2024_Biriba_Niceu.Tests
         public void GenerateStreamFromString_ShouldReturnStreamContainingInputString()
         {
             // Arrange
-            string input = "a,b \n c,d";
-            var expected = Encoding.UTF8.GetBytes(input);
+            string inputString = "a,b\nc,d";
+            Stream expectedStream = new MemoryStream(Encoding.UTF8.GetBytes(inputString));
 
             // Act
-            using (var stream = StreamHelper.GenerateStreamFromString(input))
+            Stream actualStream = StreamHelper.GenerateStreamFromString(inputString);
+
+            // Assert
+            using (StreamReader expectedReader = new StreamReader(expectedStream))
+            using (StreamReader actualReader = new StreamReader(actualStream))
             {
-                // Assert
-                using (var reader = new BinaryReader(stream))
-                {
-                    byte[] result = reader.ReadBytes((int)stream.Length);
-                    CollectionAssert.AreEqual(expected, result);
-                }
+                string expectedContent = expectedReader.ReadToEnd();
+                string actualContent = actualReader.ReadToEnd();
+
+                Assert.AreEqual(expectedContent, actualContent);
             }
         }
     }
