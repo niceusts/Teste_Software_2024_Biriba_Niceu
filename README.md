@@ -26,6 +26,12 @@ public static Stream GenerateStreamFromString(string s)
 }
 ````
 
+## Links das páginas do projeto
+
+Aplicação da Pergunta no Stack Overflow: [StreamHelperTest.cs](https://github.com/niceusts/Teste_Software_2024_Biriba_Niceu/blob/master/Application/StreamHelper.cs)
+
+Aplicação do Teste: [StreamHelper.cs](https://github.com/niceusts/Teste_Software_2024_Biriba_Niceu/blob/master/TestProject/StreamHelperTest.cs)
+
 ## Tutorial
 
 O tutorial detalhado da atividade está disponível no formato PDF. Você pode acessá-lo através do seguinte link:
